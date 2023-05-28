@@ -1,0 +1,54 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    display: flex;
+    background-color: hsl(0deg 0% 94.12%);
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}
+
+.Box-main {
+    position: relative;
+    display: flex;
+    width: 640px;
+    height: 540px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fefefe;
+    border-radius: 35px;
+}
+
+.info-date {
+    color: hsl(0deg 0% 45.49%);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 1rem;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+}
+
+.info-date input {
+    outline: none;
+    border: 1px solid hsl(0deg 0% 45.49%);
+    border-radius: 5px;
+    font-size: 17px;
+    padding: 10px 15px;
+}
+
+.info-date input:focus{
+    outline: none;
+}
+
+.date {
+    display: flex;
+    position: absolute;
+    top: 55px;
+}
