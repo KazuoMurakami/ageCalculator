@@ -20,6 +20,7 @@
   </head>
   <body class="background">
     <div class="Box-main">
+      <!-- Parte da calculadora -->
       <div class="date">
         <div class="info-date">
           <label for="Day">Days</label>
@@ -31,14 +32,20 @@
         </div>
         <div class="info-date">
           <label for="Year">Year</label>
-          <input
-            type="number"
-            placeholder="YY"
-            name="Year"
-            maxlength="4"
-            id="inputYear"
-          />
+          <input type="number" placeholder="YY" name="Year" id="inputYear" />
         </div>
+      </div>
+      <div class="division">
+        <hr />
+        <button class="circulo">
+          <img src="assets/images/icon-arrow.svg" alt="" />
+        </button>
+      </div>
+      <!-- Onde irá exibir as informações -->
+      <div class="result-age">
+        <h1><span class="barra-roxa output-year">--</span> Years</h1>
+        <h1><span class="barra-roxa output-month">--</span> Months</h1>
+        <h1><span class="barra-roxa output-day">--</span> Days</h1>
       </div>
     </div>
     <script src="script.js"></script>

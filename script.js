@@ -1,32 +1,55 @@
 let inputYear = document.querySelector("#inputYear");
 let inputDay = document.querySelector("#inputDay");
 let inputMonth = document.querySelector("#inputMonth");
-
+let button = document.querySelector(".circulo");
 let date = new Date();
 let yearCurrent = date.getFullYear();
 
-inputYear.addEventListener("input", () => {
-  const yearValue = inputYear.value;
+//Envio button
+
+button.addEventListener("click", () => {
+  const yearValue = parseInt(inputYear.value);
 
   if (isNaN(yearValue) || parseInt(yearValue) > yearCurrent) {
     inputYear.value = "";
     alert("O ano não pode ser maior que o ano atual.");
   }
-});
-
-inputMonth.addEventListener("input", () => {
   const monthValue = parseInt(inputMonth.value);
   // nessa condição eu faço uma verificação que caso o monthValue que é onde vai receber o valor inserido no input for maior que 12 ele limpara a tela,não deixando ser ultrapassado de 2 caracteres
   if (isNaN(monthValue) || monthValue < 0 || monthValue > 12) {
     inputMonth.value = "";
     alert("Mês tem que estar entre 1 e 12");
   }
-});
-
-inputDay.addEventListener("input", () => {
   const dayValue = parseInt(inputDay.value);
   if (isNaN(dayValue) || dayValue < 0 || dayValue > 31) {
     inputDay.value = "";
     alert("dia tem que estar entre 0 e 31");
+    1;
   }
+
+  Calculator(dayValue, monthValue, yearValue, date);
 });
+
+// Funcionabilidade do input da data e conversão para dias/anos/meses
+
+function Calculator(day, month, year, dateCurrent) {
+  let dataInput = new Date(`${year}-${month}-${day}`);
+  let diferencaMilissegundos = dateCurrent - dataInput;
+
+  // Converter a diferença para dias
+  let diferencaDias = diferencaMilissegundos / (1000 * 60 * 60 * 24);
+
+  // Calcular anos, meses e dias
+  let anos = Math.floor(diferencaDias / 365);
+  let meses = Math.floor((diferencaDias % 365) / 30);
+  let dias = Math.floor((diferencaDias % 365) % 30);
+
+  //
+  const outputYear = document.querySelector(".output-year");
+  const outputMonth = document.querySelector(".output-month");
+  const outputDay = document.querySelector(".output-day");
+
+  outputYear.textContent = anos;
+  outputMonth.textContent = meses;
+  outputDay.textContent = dias;
+}
