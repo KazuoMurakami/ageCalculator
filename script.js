@@ -10,23 +10,21 @@ let yearCurrent = date.getFullYear();
 button.addEventListener("click", () => {
   const yearValue = parseInt(inputYear.value);
 
-  if (isNaN(yearValue) || parseInt(yearValue) > yearCurrent) {
+  if (isNaN(yearValue) || yearCurrent < 1 || yearValue > yearCurrent) {
     inputYear.value = "";
     alert("O ano não pode ser maior que o ano atual.");
   }
   const monthValue = parseInt(inputMonth.value);
   // nessa condição eu faço uma verificação que caso o monthValue que é onde vai receber o valor inserido no input for maior que 12 ele limpara a tela,não deixando ser ultrapassado de 2 caracteres
-  if (isNaN(monthValue) || monthValue < 0 || monthValue > 12) {
+  if (isNaN(monthValue) || monthValue < 1 || monthValue > 12) {
     inputMonth.value = "";
     alert("Mês tem que estar entre 1 e 12");
   }
   const dayValue = parseInt(inputDay.value);
-  if (isNaN(dayValue) || dayValue < 0 || dayValue > 31) {
+  if (isNaN(dayValue) || dayValue < 1 || dayValue > 31) {
     inputDay.value = "";
     alert("dia tem que estar entre 0 e 31");
-    1;
   }
-
   Calculator(dayValue, monthValue, yearValue, date);
 });
 
@@ -49,7 +47,19 @@ function Calculator(day, month, year, dateCurrent) {
   const outputMonth = document.querySelector(".output-month");
   const outputDay = document.querySelector(".output-day");
 
-  outputYear.textContent = anos;
-  outputMonth.textContent = meses;
-  outputDay.textContent = dias;
+  if (anos < 10) {
+    outputYear.textContent = "0" + anos;
+  } else {
+    outputYear.textContent = anos;
+  }
+  if (meses < 10) {
+    outputMonth.textContent = "0" + meses;
+  } else {
+    outputMonth.textContent = meses;
+  }
+  if (dias < 10) {
+    outputDay.textContent = "0" + dias;
+  } else {
+    outputDay.textContent = dias;
+  }
 }
